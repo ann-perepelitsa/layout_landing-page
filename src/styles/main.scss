@@ -23,6 +23,20 @@ $breakpoint-desktop: 1260px;
   }
 }
 
+// Scroll-reveal animation
+.animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity $transition,
+    transform $transition;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 // Reset & Base
 body {
   margin: 0;
@@ -89,6 +103,10 @@ body {
 
     &:hover {
       transform: scale(1.2);
+    }
+
+    &--invert {
+      filter: brightness(0) invert(1);
     }
   }
 
@@ -162,7 +180,7 @@ body {
   justify-content: space-between;
   height: 100vh;
   box-sizing: border-box;
-  background-image: url('../images/header-bg.png');
+  background-image: url('../images/header-bg.jpg');
   background-size: cover;
   background-position: center;
 
@@ -224,6 +242,10 @@ body {
     font-size: 16px;
     line-height: 27px;
     margin-bottom: 16px;
+
+    &:hover {
+      color: #555;
+    }
   }
 
   &__call-to-order {
@@ -236,6 +258,10 @@ body {
     border-bottom: 1px solid $color-text;
     width: fit-content;
     padding-bottom: 7px;
+
+    &:hover {
+      color: #555;
+    }
   }
 }
 
@@ -329,14 +355,20 @@ body {
 
   &__image-link {
     display: block;
+    overflow: hidden;
+    border-radius: 8px;
   }
 
   &__image {
     width: 100%;
     height: auto;
-    border-radius: 8px;
     margin-bottom: 20px;
     display: block;
+    transition: transform $transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__name {
@@ -561,6 +593,13 @@ body {
     font-size: 14px;
     box-sizing: border-box;
     width: 100%;
+    transition: background $transition;
+  }
+
+  &__input:focus,
+  &__textarea:focus {
+    outline: none;
+    background-color: #ececec;
   }
 
   &__textarea {
@@ -636,7 +675,7 @@ body {
 
   &__logo {
     height: 24px;
-    filter: invert(1);
+    filter: brightness(0) invert(1);
     transition: transform $transition;
 
     &:hover {
