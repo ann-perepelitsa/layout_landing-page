@@ -557,6 +557,7 @@ body {
 // Contact
 .contact {
   padding: 80px 0;
+  background-color: $color-white;
 
   &__title {
     font-size: 48px;
@@ -606,6 +607,13 @@ body {
   &__textarea:focus {
     outline: none;
     background-color: #ececec;
+  }
+
+  &__input:-webkit-autofill,
+  &__textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px $color-light-bg inset;
+    box-shadow: 0 0 0 1000px $color-light-bg inset;
+    -webkit-text-fill-color: $color-text;
   }
 
   &__textarea {
